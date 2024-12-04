@@ -1,0 +1,49 @@
+{
+  "name": "ssr-2",
+  "version": "0.1.0",
+  "scripts": {
+    "dev:client": "webpack serve --config webpack.client.config.mjs --mode development --hot --port 3000",
+    "build:client": "webpack --config webpack.client.config.mjs --mode production",
+    "dev:server": "cross-env NODE_ENV=development nodemon --watch src/server --exec ts-node src/server/Server.ts",
+    "build:server": "cross-env NODE_ENV=production webpack --config webpack.server.config.mjs --mode production",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "build": "npm run build:client && npm run build:server",
+    "start": "node build/Server.js"
+  },
+  "author": "Epic Games - Jayden John Sham",
+  "license": "ISC",
+  "dependencies": {
+    "react": "17.0.0",
+    "react-dom": "17.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+    "@types/express": "^5.0.0",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
+    "@types/react-helmet": "^6.1.11",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-loader": "^9.2.1",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "express": "^4.21.1",
+    "html-webpack-plugin": "^5.6.3",
+    "http-proxy-middleware": "^3.0.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "nodemon": "^3.1.7",
+    "postcss-loader": "^8.1.1",
+    "react-helmet": "^6.1.0",
+    "react-router-dom": "5.3.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
